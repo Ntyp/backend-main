@@ -28,6 +28,10 @@ const connection = mysql.createConnection({
 });
 console.log('Database  Connected!!');
 
+app.get('/', function (req, res, next) {
+  res.json({ status: 'ok', message: 'Hello World' });
+});
+
 // Auth
 app.get('/api/users', function (req, res, next) {
   connection.query('SELECT * FROM `users', function (err, results, fields) {
